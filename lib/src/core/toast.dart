@@ -70,7 +70,7 @@ ToastFuture showToast(
   );
 
   return showToastWidget(
-    widget,
+    (_) => widget,
     animationBuilder: animationBuilder,
     context: context,
     duration: duration,
@@ -84,7 +84,7 @@ ToastFuture showToast(
 
 /// show [widget] with oktoast
 ToastFuture showToastWidget(
-  Widget widget, {
+  WidgetBuilder builder, {
   BuildContext context,
   Duration duration,
   ToastPosition position,
@@ -115,8 +115,8 @@ ToastFuture showToastWidget(
 
   GlobalKey<__ToastContainerState> key = GlobalKey();
 
-  widget = Align(
-    child: widget,
+  final widget = Align(
+    child: builder(context),
     alignment: position.align,
   );
 

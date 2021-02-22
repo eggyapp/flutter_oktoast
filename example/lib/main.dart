@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
     ToastFuture toastFuture = showToastWidget(
-      widget,
+      (_) => widget,
       duration: Duration(seconds: 3),
       onDismiss: () {
         print(
